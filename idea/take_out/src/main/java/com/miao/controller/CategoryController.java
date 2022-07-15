@@ -39,4 +39,27 @@ public class CategoryController {
 
         return R.success("新增分类成功");
     }
+
+    /**
+     * 根据id删除分类
+     * @param ids
+     * @return
+     */
+    @DeleteMapping
+    public R<String> delete(Long ids){
+        log.info("删除分类，id为：{}",ids);
+
+        //categoryService.removeById(id);
+        categoryService.remove(ids);
+
+        return R.success("分类信息删除成功");
+    }
+
+    @PutMapping
+    public R<String> update(@RequestBody Category category){
+
+        categoryService.updateById(category);
+
+        return R.success("修改成功");
+    }
 }
