@@ -69,14 +69,14 @@ public class EmployeeController {
 
         log.info(String.valueOf(LocalDateTime.now()));
 
+        /*这部分代码由公共操作实现
         employee.setCreateTime(LocalDateTime.now());
         employee.setUpdateTime(LocalDateTime.now());
 
-        log.info(String.valueOf(LocalDateTime.now()));
 
         Long createId = (Long) request.getSession().getAttribute("employee");
         employee.setCreateUser(createId);
-        employee.setUpdateUser(createId);
+        employee.setUpdateUser(createId);*/
         employeeService.save(employee);
 
         return R.success("新增成功");
@@ -101,10 +101,11 @@ public class EmployeeController {
 
     @PutMapping
     public R<String> update(HttpServletRequest request, @RequestBody Employee employee) {
+        /*这部分代码由公共操作实现
         Long empId = (Long) request.getSession().getAttribute("employee");
 
         employee.setUpdateTime(LocalDateTime.now());
-        employee.setUpdateUser(empId);
+        employee.setUpdateUser(empId);*/
 
 
         employeeService.updateById(employee);
@@ -119,10 +120,10 @@ public class EmployeeController {
      * @return
      */
     @GetMapping("/{id}")
-    public R<Employee> getById(@PathVariable("id") Long empId){
+    public R<Employee> getById(@PathVariable("id") Long empId) {
 
         Employee employee = employeeService.getById(empId);
-        if (employee==null){
+        if (employee == null) {
             return R.error("没有查询到该用户");
         }
         return R.success(employee);
