@@ -23,5 +23,4 @@ public class Book {
 
     //简介
     private String intro;
-
 }
