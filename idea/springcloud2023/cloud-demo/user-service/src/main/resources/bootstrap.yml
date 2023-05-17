@@ -1,0 +1,21 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: userservice # 服务名称
+  profiles:
+    active: dev #开发环境，这里是dev
+  cloud:
+    nacos:
+      server-addr: 42.194.194.60:8848 # Nacos地址
+      config:
+        #第1个读取的配置文件：读取默认配置文件：${spring.application.name} . ${spring.cloud.nacos.config.file-extension}
+        #userservice.yaml
+        #第2个读取的配置文件：读取默认配置文件：
+        #${spring.application.name}-${spring.profiles.active} . ${spring.cloud.nacos.config.file-extension}
+        #userservice-dev.yaml
+        file-extension: yaml # 文件后缀名
+        # 不同微服务项目共享配置
+        shared-configs:
+          - data-id: common.yaml
+            refresh: true

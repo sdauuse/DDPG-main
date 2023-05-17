@@ -1,0 +1,24 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: orderservice
+  cloud:
+    nacos:
+      server-addr: 42.194.194.60:8848
+      discovery:
+        cluster-name: SH
+      config:
+        file-extension: yaml
+        # 不同微服务项目共享配置
+        shared-configs:
+          - data-id: common.yaml
+feign:
+  client:
+    config:
+      default: # default全局的配置
+        loggerLevel: BASIC # 日志级别，BASIC就是基本的请求和响应信息
+  httpclient:
+    enabled: true # 开启feign对HttpClient的支持
+    max-connections: 200 # 最大的连接数
+    max-connections-per-route: 50 # 每个路径的最大连接数

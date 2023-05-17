@@ -1,0 +1,12 @@
+spring:
+  # ????? mysql5
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    # url: jdbc:mysql://crawl?useSSL=false&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://127.0.0.1:3306/crawl
+    username: root
+    password: 12356
+  # jpa??
+  jpa:
+    database: MySQL
+    show-sql: true
