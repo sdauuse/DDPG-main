@@ -7,6 +7,8 @@
     <version>0.0.1-SNAPSHOT</version>
     <modules>
         <module>../xuecheng-plus-base</module>
+        <module>../xuecheng-plus-content</module>
+        <module>../xuecheng-plus-gateway</module>
     </modules>
     <name>xuecheng-plus-parent</name>
     <description>xuecheng-plus-parent</description>
