@@ -23,11 +23,11 @@ if __name__ == '__main__':
 
     # 给写入的文件命名
     if args.stragglers is not None:
-        filename = "./records/Epoch200CNN_batch" + str(args.train_batch_size) + "stragglers_percent" + str(args.stragglers_percent) + ".csv"
-        timeFilename = "./records/TimeCNN_batch" + str(args.train_batch_size) + "stragglers_percent" + str(args.stragglers_percent) + ".csv"
+        filename = "./records/Epoch"+str(args.global_epochs)+"CNN_batch" + str(args.train_batch_size) + "stragglers_percent" + str(args.stragglers_percent * args.num_users) + ".csv"
+        timeFilename = "./records/Epoch"+str(args.global_epochs)+"TimeCNN_batch" + str(args.train_batch_size) + "stragglers_percent" + str(args.stragglers_percent * args.num_users) + ".csv"
     else:
-        filename = "./records/CNN_batch" + str(args.train_batch_size) + "stragglers_percentNo" + ".csv"
-        timeFilename = "./records/TimeCNNEpoch200_batch" + str(args.train_batch_size) + "stragglers_percentNo" + ".csv"
+        filename = "./records/Epoch"+str(args.global_epochs)+"CNN_batch" + str(args.train_batch_size) + "stragglers_percentNo" + ".csv"
+        timeFilename = "./records/Epoch"+str(args.global_epochs)+"TimeCNN_batch" + str(args.train_batch_size) + "stragglers_percentNo" + ".csv"
     # 记录准确度\
     records = []
     timeRecords = []
