@@ -28,13 +28,14 @@ public class Expression {
 
     private static void eval(String s) {
         int len = s.length();
+
         for (int i = 0; i < s.length(); i++) {
             char c = s.charAt(i);
             if (Character.isDigit(c)) {
                 int temp = 0;
                 int j = i;
                 while (j < len && Character.isDigit(s.charAt(j))) {
-                    temp = temp * 10 + s.charAt(j) - '0';
+                    temp = 10 * temp + s.charAt(j) - '0';
                     j++;
                 }
                 nums.push(temp);
@@ -47,7 +48,7 @@ public class Expression {
                 }
                 ops.pop();
             } else if (ops.isEmpty()) {
-                ops.push(s.charAt(i));
+                ops.push(c);
             } else {
                 while (!ops.isEmpty() && ops.peek() != '(' && pri.get(ops.peek()) >= pri.get(s.charAt(i))) {
                     computing();
