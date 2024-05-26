@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.miao.infrastructure.dao.IStrategyDao">
+
+    <!--parameterType 接口中方法参数的类型-->
+    <select id="queryStrategy" parameterType="java.lang.Long" resultType="com.miao.infrastructure.po.Strategy">
+        select id,
+               strategyId,
+               strategyDesc,
+               strategyMode,
+               grantType,
+               grantDate,
+               extInfo,
+               createTime,
+               updateTime
+        from strategy
+        where strategyId = #{strategyId}
+    </select>
+
+</mapper>
